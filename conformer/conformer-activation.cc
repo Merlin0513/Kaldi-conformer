@@ -31,12 +31,25 @@ namespace kaldi {
         }
 
         // Gated Linear Unit (GLU) Activation Function
-        void GLU(const CuMatrixBase<BaseFloat>& input, CuMatrixBase<BaseFloat>* output, int32 dim) {
+        // void GLU(const CuMatrixBase<BaseFloat>& input, CuMatrixBase<BaseFloat>* output, int dim) {
+        //     KALDI_ASSERT(input.NumCols() == 2 * dim);
+        //     CuMatrix<BaseFloat> input_part1(input.NumRows(), dim);
+        //     CuMatrix<BaseFloat> input_part2(input.NumRows(), dim);
+        //     input_part1.CopyColsFromMat(input.ColRange(0, dim));
+        //     input_part2.CopyColsFromMat(input.ColRange(dim, dim));
+        //     input_part2.Sigmoid(input_part2);
+        //     input_part1.MulElements(input_part2);
+        //     output->CopyFromMat(input_part1);
+        // }
+
+        void GLU(const CuMatrixBase<BaseFloat>& input, CuMatrixBase<BaseFloat>* output, int dim) {
             KALDI_ASSERT(input.NumCols() == 2 * dim);
             CuMatrix<BaseFloat> input_part1(input.NumRows(), dim);
             CuMatrix<BaseFloat> input_part2(input.NumRows(), dim);
-            input_part1.CopyColsFromMat(input.ColRange(0, dim));
-            input_part2.CopyColsFromMat(input.ColRange(dim, dim));
+
+            input_part1.CopyFromMat(input.ColRange(0, dim));
+            input_part2.CopyFromMat(input.ColRange(dim, dim));
+        
             input_part2.Sigmoid(input_part2);
             input_part1.MulElements(input_part2);
             output->CopyFromMat(input_part1);
