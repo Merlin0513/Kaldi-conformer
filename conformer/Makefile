@@ -1,7 +1,7 @@
 all:
 
 
-include $(KALDI_ROOT)/kaldi.mk
+include ../kaldi.mk
 
 # Name of the library to be built
 LIBNAME = kaldi-conformer
@@ -25,5 +25,4 @@ ADDLIBS = ../matrix/kaldi-matrix.a \
 all: $(LIBNAME)
 
 # Include Kaldi's default rules
-include $(KALDI_ROOT)/makefiles/default_rules.mk
-
+include ../makefiles/default_rules.mk
