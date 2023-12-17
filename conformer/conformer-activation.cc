@@ -1,4 +1,3 @@
-#include "conformer-utils.h"
 #include "conformer-embedding.h"
 #include "matrix/kaldi-matrix.h"
 #include "cudamatrix/cu-matrix-lib.h"
