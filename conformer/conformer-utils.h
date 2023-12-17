@@ -1,3 +1,6 @@
+#ifndef KALDI_MASTER_CONFORMER_UTILS_H_
+#define KALDI_MASTER_CONFORMER_UTILS_H_
+
 #include "matrix/kaldi-matrix.h"
 #include "cudamatrix/cu-matrix-lib.h"
 #include "base/kaldi-types.h"
@@ -82,3 +85,5 @@ namespace kaldi {
                          CuMatrix<BaseFloat>* result);
     }
 }
+
+#endif
