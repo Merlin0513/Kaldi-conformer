@@ -82,6 +82,10 @@ conformer % tree
 21 files
 
 ### Content of each source and head files:
+**Makefile, CMakeList, gen_cmakelist**
+
+
+
 **conformer-activations:**
 
 a). Swish -- activations implemented by C++ and Kaldi
