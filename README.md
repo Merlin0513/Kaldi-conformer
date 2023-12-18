@@ -73,8 +73,8 @@ conformer % tree
 
 21 files
 
-Constent of each source and head files:
-conformer-activations: 
+### Content of each source and head files:
+*conformer-activations: 
 
 a). Swish
 
