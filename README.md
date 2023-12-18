@@ -149,9 +149,12 @@ i). AddMatrices
 ### Requirements
 
 Kaldi Speech Recognition Toolkit 
+
 C++ Compiler (e.g., g++)
+
 CUDA Toolkit (for GPU acceleration, optional)
-Additional dependencies listed in Makefile/CMakeList.txt (aligned with Kaldi/src/.).
+
+Additional dependencies listed in Makefile/CMakeList.txt (aligned with Kaldi/src/.)
 
 ### Installation
 
@@ -191,6 +194,8 @@ Run the compiled Conformer model:
 ```
 
 ### Example (Pending)
+Training part (backward) is pending.
+
 
 
 
