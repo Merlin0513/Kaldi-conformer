@@ -10,6 +10,8 @@ This project presents an implementation of the Conformer model, a state-of-the-a
 
 ### Features
 
+![Conformer Architecture](./img/conformer.png)
+
 Implementation of Conformer blocks with multi-head self-attention and convolution modules.
 
 Efficient convolutional subsampling for input data processing.
@@ -26,13 +28,19 @@ The core of the Conformer model is its blocks, each comprising various specializ
 
 a). Feed Forward Module: 
 
+![Feed Foward Module](./img/feed_forward.png)
+
 Processes the output from the self-attention mechanism, consisting of two linear layers with a nonlinear activation function in between. Optimized in Kaldi for large-scale matrix operations. The expansion factor increases the dimensionality of the intermediate representation, capturing more complex features.
 
 b). Multi-Head Self Attention Module: 
 
+![Multi-Head Self Attention Module](./img/attention.png)
+
 Captures contextual relationships within input sequences. Parallelizes the attention mechanism across multiple heads, each computing scaled dot-product attention. Their outputs are concatenated and linearly transformed. Optimized for efficiency, leveraging CUDA for large-scale data.
 
 c).Convolution Module: 
+
+![Convolution Module](./img/convolution.png)
 
 Captures local features within the input sequence. Consists of a depthwise separable convolution layer, followed by batch normalization and Swish activation. This structure is computationally efficient and effective for time-series data processing.
 These components work together within each Conformer block, contributing to the model's ability to process and understand complex speech patterns effectively.
