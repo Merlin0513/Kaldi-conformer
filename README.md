@@ -11,28 +11,39 @@ This project presents an implementation of the Conformer model, a state-of-the-a
 ### Features
 
 Implementation of Conformer blocks with multi-head self-attention and convolution modules.
+
 Efficient convolutional subsampling for input data processing.
+
 Integration with Kaldi's robust speech processing and GPU-accelerated computation capabilities.
 
-\subsection{Convolutional Subsampling}
+Convolutional Subsampling:
 
 Convolutional subsampling is a critical part of the Conformer model, reducing the temporal resolution of the input while increasing the feature dimension. In Kaldi, this was achieved through a custom Conv2dSubsampling component. This component consists of two consecutive convolutional layers, each followed by ReLU activation. The layers employ a kernel size of 3 and a stride of 2, effectively reducing the input sequence length by a factor of 4. The subsampling layer outputs a transformed feature matrix ready for subsequent processing by the Conformer blocks.
 
-\subsection{Conformer Blocks}
+Conformer Blocks:
 
-The core of the Conformer model is its blocks, each comprising various specialized components that collectively enhance its ability to process sequential data effectively. In our Kaldi implementation, each Conformer block is meticulously engineered to include a multi-head self-attention module, a convolution module, and two pointwise convolutional layers, all integrated to perform complex transformations on the input data.
+The core of the Conformer model is its blocks, each comprising various specialized components that collectively enhance its ability to process sequential data effectively. In our Kaldi implementation, each Conformer block is meticulously engineered to include:
 
-\textbf{Feed Forward Module}: The Feed Forward Module in each Conformer block is a critical component that processes the output from the self-attention mechanism. It typically consists of two linear layers with a nonlinear activation function in between. In Kaldi, this module is carefully optimized to handle large-scale matrix operations efficiently. The expansion factor in the feed-forward module increases the dimensionality of the intermediate representation, allowing the network to capture more complex features before projecting back to the original dimension.
+a). Feed Forward Module: 
 
-\textbf{Multi-Head Self Attention Module}: The Multi-Head Self Attention Module is pivotal for capturing the contextual relationships within the input sequences. This module in Kaldi is designed to parallelize the attention mechanism across multiple 'heads', enabling the model to focus on different parts of the input sequence simultaneously. Each head computes scaled dot-product attention, and their outputs are concatenated and linearly transformed to produce the final output of the module. The implementation ensures that each attention head operates efficiently, particularly in leveraging CUDA optimizations for handling large-scale data.
+Processes the output from the self-attention mechanism, consisting of two linear layers with a nonlinear activation function in between. Optimized in Kaldi for large-scale matrix operations. The expansion factor increases the dimensionality of the intermediate representation, capturing more complex features.
 
-\textbf{Convolution Module}: The Convolution Module in a Conformer block is essential for capturing local features within the input sequence. This module, as implemented in Kaldi, consists of a depthwise separable convolution layer, which is a computationally efficient alternative to standard convolutions. This layer applies a depthwise convolution followed by a pointwise convolution, allowing the model to integrate local information across the sequence. The module also includes batch normalization and Swish activation to stabilize and enhance the learning process. The depthwise separable convolution is particularly advantageous in Kaldi due to its reduced computational burden and its effectiveness in processing time-series data.
+b). Multi-Head Self Attention Module: 
 
-These components work in unison within each Conformer block, contributing to the model's ability to effectively process and understand complex speech patterns. The integration of these modules in Kaldi, with a focus on computational efficiency and gradient flow, ensures that the Conformer model is not only effective in its task but also optimized for performance in large-scale speech recognition applications.
+Captures contextual relationships within input sequences. Parallelizes the attention mechanism across multiple heads, each computing scaled dot-product attention. Their outputs are concatenated and linearly transformed. Optimized for efficiency, leveraging CUDA for large-scale data.
 
-\subsection{Activations and Utils}
+c).Convolution Module: 
 
-Utility functions and classes play a vital role in our implementation. This includes custom activation functions like Swish and Gated Linear Unit (GLU), which were implemented as standalone components in Kaldi. Additionally, functions for weight initialization and normalization were crafted to ensure that the model conforms to the expected behavior of Conformer.
+Captures local features within the input sequence. Consists of a depthwise separable convolution layer, followed by batch normalization and Swish activation. This structure is computationally efficient and effective for time-series data processing.
+These components work together within each Conformer block, contributing to the model's ability to process and understand complex speech patterns effectively.
+
+Activations and Utils:
+
+a). Utility functions and classes play a vital role in our implementation:
+
+b). Custom Activation Functions: Includes Swish and Gated Linear Unit (GLU), implemented as standalone components in Kaldi.
+Weight Initialization and Normalization Functions: Crafted to ensure that the model adheres to the expected behavior of Conformer.
+
 
 ### Structure
 
@@ -61,6 +72,36 @@ conformer % tree
 └── main.h
 
 21 files
+
+Constent of each source and head files:
+conformer-activations: 
+
+a). Swish
+
+b). GLU
+
+conformer-attention:
+
+a). RelativeMultiHeadAttentionComponent, used to 
+
+b). MultiHeadAttentionModule
+
+conformer-embedding:
+
+
+conformer-encoder:
+
+
+
+conformer-feedforward:
+
+
+conformer-models:
+
+
+conformer-utils:
+
+
 
 ### Requirements
 
