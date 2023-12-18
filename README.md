@@ -84,47 +84,47 @@ conformer % tree
 ### Content of each source and head files:
 **conformer-activations:**
 
-a). Swish
+a). Swish -- activations implemented by C++ and Kaldi
 
-b). GLU
+b). GLU -- activations implemented by C++ and Kaldi
 
 **conformer-attention:**
 
-a). RelativeMultiHeadAttentionComponent, used to 
+a). RelativeMultiHeadAttentionComponent -- used to 
 
-b). MultiHeadAttentionModule
+b). MultiHeadAttentionModule --
 
 **conformer-convolution:**
 
-a). Conv1d
+a). Conv1d --
 
-b). Conv2d
+b). Conv2d --
 
-c). DepthwiseConv1d
+c). DepthwiseConv1d --
 
-d). PointwiseConv1d
+d). PointwiseConv1d --
 
-e). ConformerConvModule
+e). ConformerConvModule --
 
-f). Conv2dSubampling
+f). Conv2dSubampling --
 
 **conformer-embedding:**
 
-a). PositionalEncoding
+a). PositionalEncoding -- 
 
 **conformer-encoder:**
 
-a). ConformerBlock
+a). ConformerBlock --
 
-b). ConformerEncoder
+b). ConformerEncoder --
 
 **conformer-feedforward:**
 
-a). FeedForwardModule
+a). FeedForwardModule --
 
 **conformer-models:**
 
-a). Conformer
+a). Conformer --
 
 **conformer-utils:**
 
@@ -177,6 +177,7 @@ cd Kaldi-conformer
 ### Usage
 
 Run the compiled Conformer model:
+
 ```
 ./main_program
 ```
