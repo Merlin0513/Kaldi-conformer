@@ -74,68 +74,60 @@ conformer % tree
 21 files
 
 ### Content of each source and head files:
-*conformer-activations: 
+**conformer-activations:**
 
 a). Swish
 
 b). GLU
 
-conformer-attention:
+**conformer-attention:**
 
 a). RelativeMultiHeadAttentionComponent, used to 
 
 b). MultiHeadAttentionModule
 
-conformer-convolution:
+**conformer-convolution:**
 
-a). Conv1d()
+a). Conv1d
 
-b). Conv2d()
+b). Conv2d
 
-c). DepthwiseConv1d()
+c). DepthwiseConv1d
 
-d). PointwiseConv1d()
+d). PointwiseConv1d
 
-e). ConformerConvModule()
+e). ConformerConvModule
 
-f). Conv2dSubampling()
+f). Conv2dSubampling
 
-conformer-embedding:
+**conformer-embedding:**
 
 a). PositionalEncoding
 
-conformer-encoder:
+**conformer-encoder:**
 
 a). ConformerBlock
 
 b). ConformerEncoder
 
-conformer-feedforward:
+**conformer-feedforward:**
 
 a). FeedForwardModule
 
-conformer-models:
+**conformer-models:**
 
 a). Conformer
 
-conformer-utils:
+**conformer-utils:**
 
 a). LayerNorm
-
 b). BatchNorm1d
-
 c). Dropout
-
 d). ReLU
-
 e). Linear
-
 f). CalculateOutputLength
-
 g). ApplyMask
-
 h). AddBias
-
 i). AddMatrices
 
 ### Requirements
