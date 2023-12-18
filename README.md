@@ -43,7 +43,7 @@ make
 
 Clone kaldi-conformer repository:
 ```
-git clone https://github.com/kaldi-asr/kaldi.git
+git clone https://github.com/Merlin0513/Kaldi-conformer.git
 cd Kaldi-conformer
 ```
 
