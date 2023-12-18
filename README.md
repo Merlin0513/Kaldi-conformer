@@ -84,11 +84,11 @@ conformer % tree
 ### Content of each source and head files:
 **Makefile, CMakeList, gen_cmakelist**
 
-a). Makefile --
+a). Makefile -- compiling a set of C++ source files into object files, then linking these object files with additional Kaldi libraries to create a library named kaldi-conformer. It leverages configurations and rules defined in Kaldi's own Makefiles (kaldi.mk and default_rules.mk) to ensure consistent build processes with the rest of the Kaldi project. 
 
-b). CMakeList.txt --
+b). CMakeList.txt -- aligned with the dependencies format under kaldi/src/.
 
-c). gen_cmakelist.py --
+c). gen_cmakelist.py -- used to generate CMakeList.txt accroding to Makefile
 
 **conformer-activations:**
 
@@ -98,23 +98,23 @@ b). GLU -- activations implemented by C++ and Kaldi
 
 **conformer-attention:**
 
-a). RelativeMultiHeadAttentionComponent -- used to 
+a). RelativeMultiHeadAttentionComponent -- implemented by C++ and Kaldi to align with attention in PyTorch, allowing the model to focus on different parts of the input sequence and understand the relative positions of sequence elements (similar to the part of Transformer) 
 
-b). MultiHeadAttentionModule --
+b). MultiHeadAttentionModule -- combining `RelativeMultiHeadAttentionComponent` with LayerNorm and Dropout layer of the attention module 
 
 **conformer-convolution:**
 
-a). Conv1d --
+a). Conv1d -- implemented by C++ and Kaldi to align with nn.conv1d() in PyTorch
 
-b). Conv2d --
+b). Conv2d -- implemented by C++ and Kaldi to align with nn.conv2d() in PyTorch
 
-c). DepthwiseConv1d --
+c). DepthwiseConv1d
 
-d). PointwiseConv1d --
+d). PointwiseConv1d
 
-e). ConformerConvModule --
+e). ConformerConvModule -- combining `DepthwiseConv1d`, `PointwiseConv1d`, Swish, GLU, BatchNorm1d, LayerNorm, Dropout to form convolution module in Conformer
 
-f). Conv2dSubampling --
+f). Conv2dSubampling -- combining 2 conv2d layers and 2 ReLU
 
 **conformer-embedding:**
 
@@ -122,9 +122,9 @@ a). PositionalEncoding --
 
 **conformer-encoder:**
 
-a). ConformerBlock --
+a). ConformerBlock -- intergrating convolution module (above), attention module (above), feed forward module (below)
 
-b). ConformerEncoder --
+b). ConformerEncoder -- intergrating all the parts in Figure 1.
 
 **conformer-feedforward:**
 
@@ -132,9 +132,11 @@ a). FeedForwardModule --
 
 **conformer-models:**
 
-a). Conformer --
+a). Completed Conformer model
 
 **conformer-utils:**
+
+- implemented by C++ and Kaldi to align with utils function in PyTorch
 
 a). LayerNorm
 b). BatchNorm1d
