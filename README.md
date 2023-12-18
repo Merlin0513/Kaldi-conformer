@@ -84,7 +84,11 @@ conformer % tree
 ### Content of each source and head files:
 **Makefile, CMakeList, gen_cmakelist**
 
+a). Makefile --
 
+b). CMakeList.txt --
+
+c). gen_cmakelist.py --
 
 **conformer-activations:**
 
