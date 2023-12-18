@@ -18,34 +18,34 @@ Efficient convolutional subsampling for input data processing.
 
 Integration with Kaldi's robust speech processing and GPU-accelerated computation capabilities.
 
-Convolutional Subsampling:
+- Convolutional Subsampling:
 
 Convolutional subsampling is a critical part of the Conformer model, reducing the temporal resolution of the input while increasing the feature dimension. In Kaldi, this was achieved through a custom Conv2dSubsampling component. This component consists of two consecutive convolutional layers, each followed by ReLU activation. The layers employ a kernel size of 3 and a stride of 2, effectively reducing the input sequence length by a factor of 4. The subsampling layer outputs a transformed feature matrix ready for subsequent processing by the Conformer blocks.
 
-Conformer Blocks:
+- Conformer Blocks:
 
 The core of the Conformer model is its blocks, each comprising various specialized components that collectively enhance its ability to process sequential data effectively. In our Kaldi implementation, each Conformer block is meticulously engineered to include:
 
-a). Feed Forward Module: 
+**a). Feed Forward Module:**
 
 ![Feed Foward Module](./img/feed_forward.png)
 
 Processes the output from the self-attention mechanism, consisting of two linear layers with a nonlinear activation function in between. Optimized in Kaldi for large-scale matrix operations. The expansion factor increases the dimensionality of the intermediate representation, capturing more complex features.
 
-b). Multi-Head Self Attention Module: 
+**b). Multi-Head Self Attention Module:** 
 
 ![Multi-Head Self Attention Module](./img/attention.png)
 
 Captures contextual relationships within input sequences. Parallelizes the attention mechanism across multiple heads, each computing scaled dot-product attention. Their outputs are concatenated and linearly transformed. Optimized for efficiency, leveraging CUDA for large-scale data.
 
-c).Convolution Module: 
+**c).Convolution Module:**
 
 ![Convolution Module](./img/convolution.png)
 
 Captures local features within the input sequence. Consists of a depthwise separable convolution layer, followed by batch normalization and Swish activation. This structure is computationally efficient and effective for time-series data processing.
 These components work together within each Conformer block, contributing to the model's ability to process and understand complex speech patterns effectively.
 
-Activations and Utils:
+- Activations and Utils:
 
 a). Utility functions and classes play a vital role in our implementation:
 
