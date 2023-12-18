@@ -86,22 +86,57 @@ a). RelativeMultiHeadAttentionComponent, used to
 
 b). MultiHeadAttentionModule
 
+conformer-convolution:
+
+a). Conv1d()
+
+b). Conv2d()
+
+c). DepthwiseConv1d()
+
+d). PointwiseConv1d()
+
+e). ConformerConvModule()
+
+f). Conv2dSubampling()
+
 conformer-embedding:
 
+a). PositionalEncoding
 
 conformer-encoder:
 
+a). ConformerBlock
 
+b). ConformerEncoder
 
 conformer-feedforward:
 
+a). FeedForwardModule
 
 conformer-models:
 
+a). Conformer
 
 conformer-utils:
 
+a). LayerNorm
 
+b). BatchNorm1d
+
+c). Dropout
+
+d). ReLU
+
+e). Linear
+
+f). CalculateOutputLength
+
+g). ApplyMask
+
+h). AddBias
+
+i). AddMatrices
 
 ### Requirements
 
