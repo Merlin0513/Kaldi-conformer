@@ -118,7 +118,7 @@ f). Conv2dSubampling -- combining 2 conv2d layers and 2 ReLU
 
 **conformer-embedding:**
 
-a). PositionalEncoding -- 
+a). PositionalEncoding --  Kaldi/C++ version to inject information about the relative or absolute position of tokens in the sequence. 
 
 **conformer-encoder:**
 
