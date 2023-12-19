@@ -6,6 +6,8 @@ Wenqing Yang (wy2374@columbia.edu)
 
 ### Overview
 
+**This project (Conformer) is fully implemented by C++ in Kaldi.**
+
 This project presents an implementation of the Conformer model, a state-of-the-art speech recognition architecture, using the Kaldi speech recognition toolkit. The Conformer model combines convolutional neural networks with self-attention mechanisms to achieve superior performance in automatic speech recognition tasks. Currently, the Conformer model stands at the forefront of End-to-End Automatic Speech Recognition (E2E ASR) technology. It's acclaimed for its state-of-the-art architecture, which innovatively merges various modules, delivering outstanding performance in benchmarks. So far, the implementation of the Conformer model has predominantly been in PyTorch, a popular machine learning framework. In contrast, Kaldi as another highly efficient toolkit for speech recognition, offers a different approach. Known for its robustness and versatility in speech recognition tasks, Kaldi has not yet been utilized to implement the Conformer model. This presents a unique opportunity to explore the integration of this advanced model into the Kaldi toolkit. This project aims to bridge this gap by detailing the integration of the Conformer model within the Kaldi framework.
 
 ### Features
@@ -79,7 +81,7 @@ conformer % tree
 ├── main.cc
 └── main.h
 
-21 files
+21 files, all are implemented by C++ in Kaldi.
 
 ### Content of each source and head files:
 **Makefile, CMakeList, gen_cmakelist**
@@ -128,7 +130,7 @@ b). ConformerEncoder -- intergrating all the parts in Figure 1.
 
 **conformer-feedforward:**
 
-a). FeedForwardModule --
+a). FeedForwardModule -- implemented by Kaldi/C++, combining LayerNorm, Swish, Linear layer, Dropout together of Conformer FeedForward Layer
 
 **conformer-models:**
 
@@ -198,6 +200,30 @@ Run the compiled Conformer model:
 ### Example (Pending)
 Training part (backward) is pending.
 
+*Input:*
 
+- Input to Kaldi is usually 2D matrix (T, F), T shows time frames, and F shows number of features.
 
+- I obtained 1000 frames after feature extracion, each with 13 Mel-frequency cepstral coefficients (MFCCs). The resulting input matrix to Kaldi would have the dimensions of 1000 x 13.
 
+- Dimensions: The matrix is 1000 rows tall and 13 columns wide. Each row represents one frame of audio, and each column represents one of the 13 MFCC features for that frame.
+
+- | MFCC1 | MFCC2 | MFCC3 | MFCC4 | MFCC5 | MFCC6| MFCC7 | MFCC8 | MFCC9 | MFCC10 | MFCC11 | MFCC12 | MFCC13 |
+|----------|:--------:|---------:|---------:|---------:|---------:|---------:|---------:|---------:|---------:|---------:|---------:|---------:|
+|-0.35334487 | -0.95165449 |  0.44435054 |  0.86474822 |  0.9644576 |  0.69874035 |  0.16265555 |  0.29633604 |  0.50446081 |  0.19784188 | -0.50917848 |  0.16372119 |  0.08428841 |
+| Row 2, Col 1 | Row 2, Col 2 | Row 2, Col 3 |
+| Row 3, Col 1 | Row 3, Col 2 | Row 3, Col 3 |
+
+- [[-0.35334487, -0.95165449,  0.44435054,  0.86474822,  0.9644576 ,  0.69874035,  0.16265555,  0.29633604,  0.50446081,  0.19784188, -0.50917848,  0.16372119,  0.08428841],
+ [ 1.2538247 , -0.69291813, -1.43273087,  0.60407718, -0.76455384,  0.72688382, -0.39197256, -0.22359876, -1.22606798,  0.92249466, -0.60008128,  0.44253412, -0.02842545],
+ [ 0.65987204,  1.34957948,  0.06847772, -0.65588176, -0.16863621,  1.45114111,  1.40846882, -1.63435145,  1.19978887, -0.92174252,  0.84968286, -1.24177759, -2.26446818],
+ [-0.93523281,  1.49038584, -0.73518638, -1.51611687,  1.45539284,  1.49358285,  1.00039057, -0.43222398, -0.2829213 , -0.5081075 ,  1.73101063,  0.65469499, -0.00000612],
+ [ 0.30782431,  0.03984987,  0.38212052,  1.32942278, -0.76100636,  1.63661281,  0.80487306,  0.96602741, -0.20541635, -0.9833435 , -2.09880019,  1.01005629,  0.7254073 ]]
+...
+
+*Output:*
+
+- The output matrix from the simulated Conformer model has been generated. Given the input matrix of dimensions [1000 x 13] and assuming num_classes = 20, the output matrix has dimensions [1000 x 20]. Each row in the output matrix corresponds to one frame of the input audio, and each column represents the model's output (softmax probability) for one of the 20 classes. 
+
+[[ 1.96429584,  2.95293745, 0.006278,  4.816209, 5.1075, 2.18769, 3.47850, 4.58930, 1.279494, 5.272904, 8.8393027, 3.2729048, 5.0298734, 6.9583798, 0.223930846, 5.573920, 7.3683993, 2.920836, 3.009186, 2.00273544],
+...
