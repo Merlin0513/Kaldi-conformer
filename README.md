@@ -209,7 +209,7 @@ Training part (backward) is pending.
 - Dimensions: The matrix is 1000 rows tall and 13 columns wide. Each row represents one frame of audio, and each column represents one of the 13 MFCC features for that frame.
 
 - | MFCC1 | MFCC2 | MFCC3 | MFCC4 | MFCC5 | MFCC6| MFCC7 | MFCC8 | MFCC9 | MFCC10 | MFCC11 | MFCC12 | MFCC13 |
-|----------|:--------:|---------:|---------:|---------:|---------:|---------:|---------:|---------:|---------:|---------:|---------:|---------:|
+|:--------:|:--------:|---------:|---------:|---------:|---------:|---------:|---------:|---------:|---------:|---------:|---------:|---------:|
 |-0.35334487 | -0.95165449 |  0.44435054 |  0.86474822 |  0.9644576 |  0.69874035 |  0.16265555 |  0.29633604 |  0.50446081 |  0.19784188 | -0.50917848 |  0.16372119 |  0.08428841 |
 | Row 2, Col 1 | Row 2, Col 2 | Row 2, Col 3 |
 | Row 3, Col 1 | Row 3, Col 2 | Row 3, Col 3 |
