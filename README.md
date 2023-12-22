@@ -194,6 +194,7 @@ cd Kaldi-conformer
 Run the compiled Conformer model:
 
 ```
+cd build
 ./main_program
 ```
 
